@@ -39,7 +39,7 @@ def login(email, password):
     token = jwt.encode(user_exist,secret_key, algorithm='HS256')
 
     return {
-        "message": "Login Completed Successfully",
+        "message": "Login Completed",
         "user": user_exist,
         "token": token
     }
