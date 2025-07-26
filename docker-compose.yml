@@ -8,6 +8,6 @@ services:
     volumes:
       - "/Users/diegogaibor/Documents/Kruger/proyecto4gen/backend:/app"
     environment:
-      MongoDB_URI: mongodb+srv://diego:TQDtAohdgwPgC3MU@cluster0.8hafcmm.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+      MongoDB_URI: 
       JWT_SECRET_KEY: secret123
     command: uvicorn main:app --host 0.0.0.0 --port 8000 --reload
