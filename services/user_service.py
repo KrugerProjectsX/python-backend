@@ -27,3 +27,20 @@ def update_user(user_id: str, user):
     data_user = user.model_dump()
     user_db.update_one({"_id":ObjectId(user_id)}, {"$set": data_user})
     return {"message": "User updated successfully"}
+
+def get_user(user_id: str):
+    user = user_db.find_one({"_id": ObjectId(user_id)})
+    if not user:
+        return {"message": "User not found"}
+
+    user['_id'] = str(user['_id'])
+    user['password'] = None
+    return {"message": "Ok", "data": user}
+
+def delete_user(user_id: str):
+    user = user_db.find_one({"_id": ObjectId(user_id)})
+    if not user:
+        return {"message": "User not found"}
+
+    user_db.delete_one({"_id": ObjectId(user_id)})
+    return {"message": "User deleted successfully"}
